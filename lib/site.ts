@@ -4,7 +4,7 @@ export const SITE = {
   webApp: "https://web.sdvig.app",
   library: "/library",
   email: "support@sdvig.app",
-  emailLegal: "info@sdvig.app",
+  emailLegal: "support@sdvig.app",
   telegram: "https://t.me/sdvigapp",
   telegramHandle: "@sdvigapp",
   legalEntity: "ИП Гафуров Самур Гулу Оглы",

@@ -28,7 +28,7 @@ const libraryLinks = [
 const legalLinks = [
   { label: "Политика конфиденциальности", href: "/privacy" },
   { label: "Пользовательское соглашение", href: "/terms" },
-  { label: "Публичная оферта", href: "/terms" },
+  { label: "Публичная оферта", href: "/offer" },
   { label: "Согласие на обработку ПД", href: "/privacy#consent" },
   { label: "Cookie", href: "/privacy#cookie" },
 ];
