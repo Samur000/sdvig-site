@@ -1,7 +1,8 @@
 export type LegalBlock =
   | { type: "p"; text: string }
   | { type: "h3"; text: string }
-  | { type: "ul"; items: string[] };
+  | { type: "ul"; items: string[] }
+  | { type: "table"; headers: string[]; rows: string[][] };
 
 export type LegalSection = {
   id: string;

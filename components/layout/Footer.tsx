@@ -30,7 +30,7 @@ const legalLinks = [
   { label: "Пользовательское соглашение", href: "/terms" },
   { label: "Публичная оферта", href: "/offer" },
   { label: "Согласие на обработку ПД", href: "/privacy#consent" },
-  { label: "Cookie", href: "/privacy#cookie" },
+  { label: "Cookie", href: "/cookie" },
 ];
 
 const contactLinks = [

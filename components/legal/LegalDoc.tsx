@@ -27,6 +27,46 @@ function renderBlock(block: LegalBlock, key: number) {
       </h3>
     );
   }
+  if (block.type === "table") {
+    return (
+      <div
+        key={key}
+        className="overflow-x-auto border-[3px] border-[var(--border)] rounded-2xl shadow-[var(--shadow-hard)]"
+      >
+        <table className="w-full border-collapse text-[14px] md:text-[15px]">
+          <thead>
+            <tr className="bg-bg-secondary">
+              {block.headers.map((h, i) => (
+                <th
+                  key={i}
+                  className="text-left font-bold text-text-primary p-3 md:p-4 border-b-2 border-[var(--border)] not-last:border-r-2"
+                >
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {block.rows.map((row, r) => (
+              <tr
+                key={r}
+                className="not-last:border-b-[1px] not-last:border-[var(--border)]"
+              >
+                {row.map((cell, c) => (
+                  <td
+                    key={c}
+                    className="align-top p-3 md:p-4 text-text-secondary leading-relaxed not-last:border-r-2 not-last:border-[var(--border)]"
+                  >
+                    {cell}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
   return (
     <ul key={key} className="space-y-3 list-disc pl-6 marker:text-accent">
       {block.items.map((item, i) => (
