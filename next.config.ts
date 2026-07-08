@@ -1,8 +1,13 @@
 import type { NextConfig } from "next";
 
-// Served from the apex custom domain (sdvig.app), so no basePath.
+const basePath = process.env.GITHUB_PAGES ? "/sdvig-site" : "";
+
 const nextConfig: NextConfig = {
   output: "export",
+  basePath,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   images: {
     unoptimized: true,
   },
