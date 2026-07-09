@@ -95,8 +95,8 @@ export default function ComparePage() {
                     Возможность
                   </th>
                   {[
-                    { name: "Free", note: "0 ₽" },
-                    { name: "Plus", note: "299 ₽/мес", highlight: true },
+                    { name: "Free", note: "Бесплатно" },
+                    { name: "Plus", note: "200 ₽/мес", highlight: true },
                     { name: "Pro", note: "Скоро" },
                   ].map((col) => (
                     <th

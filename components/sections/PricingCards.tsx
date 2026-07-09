@@ -45,9 +45,9 @@ const tiers: Tier[] = [
     num: "02",
     name: "Plus",
     hint: "Для синхронизации между устройствами",
-    monthly: 299,
-    yearly: 2870,
-    yearlyOriginal: 3588,
+    monthly: 200,
+    yearly: 2000,
+    yearlyOriginal: 2400,
     features: [
       "Всё из Free",
       "Облачная синхронизация на всех устройствах",
@@ -119,7 +119,7 @@ export function PricingCards() {
         >
           Раз в год
           <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-accent text-white text-[12px] font-bold">
-            −20%
+            −17%
           </span>
         </button>
       </div>
@@ -183,10 +183,7 @@ export function PricingCards() {
                     ) : price === 0 ? (
                       <div className="flex items-baseline gap-2">
                         <span className="text-[56px] font-bold text-text-primary leading-none">
-                          0 ₽
-                        </span>
-                        <span className="text-[16px] text-text-muted">
-                          навсегда
+                          Бесплатно
                         </span>
                       </div>
                     ) : (
