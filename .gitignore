@@ -18,6 +18,11 @@
 /.next/
 /out/
 
+# standalone library project (own build artifacts)
+/library/node_modules
+/library/.next/
+/library/out/
+
 # production
 /build
 
