@@ -1,7 +1,8 @@
 # Сдвиг — sdvig.app
 
-Маркетинговый сайт + библиотека гайдов для приложения «Сдвиг». Стек: Next.js 16
-(App Router) + TypeScript + Tailwind CSS 4 + Framer Motion + Lucide.
+Маркетинговый сайт приложения «Сдвиг». Стек: Next.js 16 (App Router) +
+TypeScript + Tailwind CSS 4 + Framer Motion + Lucide. Библиотека гайдов —
+отдельный проект: [library.sdvig.app](https://library.sdvig.app).
 
 ## Команды
 
@@ -20,8 +21,6 @@ app/
   about/              о проекте
   changelog/          что нового
   contacts/           контакты
-  library/            библиотека гайдов
-    [slug]/           отдельный гайд
   pricing/            тарифы
     compare/          таблица сравнения тарифов
   privacy/            политика конфиденциальности (152-ФЗ)
@@ -36,7 +35,7 @@ app/
 components/
   layout/             Navbar, Footer
   sections/           секции лендинга и тарифов
-  ui/                 Button, Card, Accordion, Pill, Badge, Container, ThemeToggle, Section
+  ui/                 Button, Card, Accordion, Badge, Container, ThemeToggle, Section
   illustrations/      SVG-иллюстрации (мозг, иконки, граф, стрик), плейсхолдер скриншота
   ThemeProvider.tsx   обёртка над next-themes (data-theme="light|dark")
 content/
@@ -44,7 +43,6 @@ content/
 lib/
   cn.ts               clsx + tailwind-merge
   site.ts             центр конфига (URL, контакты, реквизиты)
-  library.ts          данные гайдов (slug, заголовок, тело, категория)
   privacy-content.ts  структурированный текст политики
 public/
   illustrations/      место для финальных иллюстраций
@@ -73,17 +71,15 @@ CSS-переменные определены в `app/globals.css` и пробр
 2. Заменить `ScreenshotPlaceholder` на реальные скриншоты модулей
    (`components/illustrations/ScreenshotPlaceholder.tsx` или картинки в
    `public/screenshots/`).
-3. Пополнить `lib/library.ts` реальным контентом гайдов (сейчас 6 примеров
-   с плейсхолдерным текстом).
-4. Заполнить страницу `/terms` — сейчас заглушка.
-5. Подставить реальные ссылки на App Store и Google Play в `lib/site.ts`
+3. Заполнить страницу `/terms` — сейчас заглушка.
+4. Подставить реальные ссылки на App Store и Google Play в `lib/site.ts`
    (`appStoreUrl`, `googlePlayUrl`).
-6. Подключить аналитику (Plausible/Umami) через `app/layout.tsx`.
-7. Добавить домен `sdvig.app` в `metadataBase` (уже выставлено в `layout.tsx`,
+5. Подключить аналитику (Plausible/Umami) через `app/layout.tsx`.
+6. Добавить домен `sdvig.app` в `metadataBase` (уже выставлено в `layout.tsx`,
    проверь, что совпадает с продакшен-URL).
 
 ## Контакты в коде
 
-Все ссылки на email, Telegram, веб-приложение и реквизиты ИП — централизованы
-в `lib/site.ts`. Меняй там — поменяется по всему сайту (Navbar, Footer,
-Download, страницы About / Contacts / Privacy / Terms).
+Все ссылки на email, Telegram, веб-приложение, библиотеку и реквизиты ИП —
+централизованы в `lib/site.ts`. Меняй там — поменяется по всему сайту (Navbar,
+Footer, Download, страницы About / Contacts / Privacy / Terms).

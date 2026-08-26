@@ -17,12 +17,12 @@ const productLinks = [
 ];
 
 const libraryLinks = [
-  { label: "Все гайды", href: "/library" },
-  { label: "СДВГ", href: "/library?category=adhd" },
-  { label: "Фокус", href: "/library?category=focus" },
-  { label: "Привычки", href: "/library?category=habits" },
-  { label: "Wellbeing", href: "/library?category=wellbeing" },
-  { label: "Продуктивность", href: "/library?category=productivity" },
+  { label: "Все гайды", href: SITE.library },
+  { label: "СДВГ", href: `${SITE.library}/?category=adhd` },
+  { label: "Фокус", href: `${SITE.library}/?category=focus` },
+  { label: "Привычки", href: `${SITE.library}/?category=habits` },
+  { label: "Wellbeing", href: `${SITE.library}/?category=wellbeing` },
+  { label: "Продуктивность", href: `${SITE.library}/?category=productivity` },
 ];
 
 const legalLinks = [
@@ -144,7 +144,7 @@ export function Footer() {
 
           <FooterColumn title="Библиотека">
             {libraryLinks.map((l) => (
-              <FooterLink key={l.label} href={l.href}>
+              <FooterLink key={l.label} href={l.href} external>
                 {l.label}
               </FooterLink>
             ))}

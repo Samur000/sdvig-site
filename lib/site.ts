@@ -2,7 +2,7 @@ export const SITE = {
   name: "SDViGApp",
   url: "https://sdvig.app",
   webApp: "https://web.sdvig.app",
-  library: "/library",
+  library: "https://library.sdvig.app",
   email: "support@sdvig.app",
   emailLegal: "support@sdvig.app",
   telegram: "https://t.me/sdvigapp",

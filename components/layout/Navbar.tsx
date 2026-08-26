@@ -12,9 +12,13 @@ import { NAVBAR_HEIGHT, useNavbarVisibility } from "@/lib/useNavbarVisibility";
 
 const NAV_HEIGHT = NAVBAR_HEIGHT;
 
-const navItems = [
+const navItems: {
+  label: string;
+  href: string;
+  external?: boolean;
+}[] = [
   { label: "Возможности", href: "/#features" },
-  { label: "Библиотека", href: "/library" },
+  { label: "Библиотека", href: SITE.library, external: true },
   { label: "Тарифы", href: "/pricing" },
 ];
 
@@ -90,16 +94,34 @@ export function Navbar() {
               <Logo height={34} />
             </Link>
             <nav className="hidden lg:flex items-center gap-10">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-[15px] font-semibold text-text-secondary hover:text-accent transition-colors relative group"
-                >
-                  {item.label}
-                  <span className="absolute left-0 right-0 -bottom-1 h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const className =
+                  "text-[15px] font-semibold text-text-secondary hover:text-accent transition-colors relative group";
+                const content = (
+                  <>
+                    {item.label}
+                    <span className="absolute left-0 right-0 -bottom-1 h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+                  </>
+                );
+                if (item.external) {
+                  return (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={className}
+                    >
+                      {content}
+                    </a>
+                  );
+                }
+                return (
+                  <Link key={item.href} href={item.href} className={className}>
+                    {content}
+                  </Link>
+                );
+              })}
             </nav>
           </div>
 
@@ -169,14 +191,27 @@ export function Navbar() {
                       }}
                       className="border-b-[1px] border-[var(--border)]"
                     >
-                      <Link
-                        href={item.href}
-                        onClick={() => setOpen(false)}
-                        className="flex items-center justify-between py-5 text-[28px] font-bold text-text-primary hover:text-accent transition-colors"
-                      >
-                        {item.label}
-                        <span className="text-text-muted text-[20px]">→</span>
-                      </Link>
+                      {item.external ? (
+                        <a
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setOpen(false)}
+                          className="flex items-center justify-between py-5 text-[28px] font-bold text-text-primary hover:text-accent transition-colors"
+                        >
+                          {item.label}
+                          <span className="text-text-muted text-[20px]">→</span>
+                        </a>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          onClick={() => setOpen(false)}
+                          className="flex items-center justify-between py-5 text-[28px] font-bold text-text-primary hover:text-accent transition-colors"
+                        >
+                          {item.label}
+                          <span className="text-text-muted text-[20px]">→</span>
+                        </Link>
+                      )}
                     </motion.li>
                   ))}
                 </ul>
