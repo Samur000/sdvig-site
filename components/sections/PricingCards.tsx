@@ -36,7 +36,7 @@ const tiers: Tier[] = [
       "E2EE шифрование",
       "Помодоро без ограничений",
       "Без рекламы",
-      "Экспорт в JSON",
+      "Экспорт и импорт данных",
     ],
     cta: { label: "Открыть в браузере", href: SITE.webApp },
   },
@@ -63,15 +63,15 @@ const tiers: Tier[] = [
     id: "pro",
     num: "03",
     name: "Pro",
-    hint: "AI-функции в разработке",
+    hint: "Новые модули и AI-функции",
     monthly: null,
     yearly: null,
     features: [
       "Всё из Plus",
+      "Новые модули по мере выхода",
       "AI-помощник по задачам",
-      "Автоматическая категоризация",
       "Умные напоминания",
-      "Контекстные предложения",
+      "И ещё кое-что интересное",
     ],
     cta: { label: "В разработке", disabled: true },
     badge: "Скоро",
@@ -173,11 +173,8 @@ export function PricingCards() {
                   >
                     {price === null ? (
                       <div className="flex items-baseline gap-2">
-                        <span className="text-[56px] font-bold text-text-primary leading-none">
-                          —
-                        </span>
-                        <span className="text-[16px] text-text-muted">
-                          будет позже
+                        <span className="text-[56px] font-bold text-text-muted leading-none">
+                          Скоро
                         </span>
                       </div>
                     ) : price === 0 ? (
@@ -232,7 +229,11 @@ export function PricingCards() {
               </ul>
 
               {tier.cta.disabled ? (
-                <Button variant="secondary" disabled className="w-full">
+                <Button
+                  variant="secondary"
+                  disabled
+                  className="w-full bg-bg-secondary text-text-muted border-[var(--border)] shadow-none hover:bg-bg-secondary hover:border-[var(--border)]"
+                >
                   {tier.cta.label}
                 </Button>
               ) : tier.cta.href ? (
